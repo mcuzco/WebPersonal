@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Puma Future Z | SuperStar</title>
+
+    <!-- Estilos y fuentes del template  -->
+
+    <link href="/static/core/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/core/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="/static/core/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/static/core/css/style.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="/">SuperStar</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menú
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/catalogo/">Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact/">Contacto</a>
+            
+            
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cabecera --> 
+    <header class="masthead" style="background-image: url('/static/core/img/puma.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+            <h1>SuperStar</h1>
+            <span class="subheading">Venta de Calzado Deportivo</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido -->
+    <div class="contenedorTiend">
+        <div class="articleCompra">
+                                    <h2> Puma Future Z </h2>
+            <div class="center-container">
+                <div class="image-box">
+                    <img src="/static/core/img/PumaZ.jpg" alt="Imagen del Producto">
+                </div>
+            </div>
+                    <p>El Future Z está construido con una banda de compresión adaptable Fuzionfit+ en el mediopié que envuelve tu pie para proporcionar
+						el equilibrio perfecto de apoyo y flexibilidad en cada área clave para un ajuste y rendimiento óptimos, con cordones o no.</p>
+        <div id = "paypal-button-container">  </div>
+        </div>
+         
+    </div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AcOXKhdEIR9JJIimrs0GyrDPVgIseNk9JAuZvDcMJPvdfT6T4VTJ_6gXGMFumelsizUY6ifs1vBARh4I"></script>
+                <script> 
+                    paypal.Buttons({
+                        style:{
+                            color: 'blue',
+                            shape:'pill',
+                            label: 'pay'
+                        },
+                        createOrder: function(data, actions){
+                            return actions.order.create({
+                                purchase_units: [{
+                                        amount: {
+                                            value: 180
+                                        }
+                                }]
+
+                                
+                            });
+                        },
+
+                        onApprove: function(data, actions){
+                            alert("Pago Realizado con Exito");
+                            actions.order.capture().then(function(detalles){
+                                console.log(detalles);
+                            });
+                        },
+
+                        onCancel: function(data){
+                            alert("Pago Cancelado");
+                            console.log(data);
+                        }
+                    }).render('#paypal-button-container')
+                 </script>
+
+
+    <!-- Pié de página -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-reddit fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; 2023 · SuperStar (Calzado Deportivo) </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap y Javascripts -->
+    <script src="/static/core/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/core/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/core/js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>

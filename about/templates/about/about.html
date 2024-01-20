@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Catalogo | EVOLVE FITNESS CLUB</title>
+
+    <!-- Estilos y fuentes del template  -->
+    <link href="/static/core/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/core/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="/static/core/css/clean-blog.min.css" rel="stylesheet">
+    <link href="/static/core/css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #333;
+        }
+
+        .navbar-nav a,
+        .site-heading h1,
+        .subheading {
+            transition: color 0.3s ease-in-out;
+            color: #ff7f50; /* Color de resaltado por defecto */
+        }
+
+        .navbar-nav a:hover,
+        .site-heading h1:hover,
+        .subheading:hover {
+            color: #ff6347; /* Color de resaltado al pasar el ratón */
+        }
+
+        .masthead {
+            background-color: #111;
+        }
+
+        .btn {
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white; /* Color de texto del botón */
+            border: 2px solid #4CAF50; /* Borde del botón */
+        }
+
+        .btn:hover {
+            background-color: #45a049; /* Color de resaltado al pasar el ratón */
+            color: white;
+        }
+
+        .site-heading,
+        .article {
+            color: #fff;
+        }
+
+        .article {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .article h2 {
+            color: #ff7f50;
+        }
+
+        .article p {
+            color: #ddd;
+        }
+
+        .article a {
+            color: #ff7f50;
+        }
+
+        .article a:hover {
+            color: #ff6347;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer a {
+            color: #ff7f50;
+        }
+
+        footer a:hover {
+            color: #ff6347;
+        }
+
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.project-image img:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-details {
+    padding: 20px;
+}
+
+.project-info h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.project-link a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.project-link a:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+  </head>
+  <body>
+
+
+<!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="/">EVOLVE FITNESS CLUB</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menú
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/catalogo/">Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact/">Contacto</a>
+            
+            
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Cabecera --> 
+    <header class="masthead" style="background-image: url('/static/core/img/evolveubi.jpeg')">
+      <div class="overlay"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="site-heading">
+                <h1>ACERCA DE NOSOTROS</h1>
+                <span class="subheading">Venta de Calzado Deportivo</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </header>
+
+   
+    {% for project in projects %}
+<!-- Contenido Principal -->
+			<div class="row project">  	
+				<div class="col-lg-3 col-md-4 offset-lg-1">
+					<img class="img-fluid" src="{{ project.image.url }}" alt="">
+				</div>
+				<div class="col-lg-7 col-md-8">
+					<h2 class="section-heading title">{{ project.title }}</h2>   
+				<p>{{ project.description }}</p>
+				{% if project.link %}
+					<p><a href="{{project.link}}">Más información</a></p>
+				{% endif %}  
+				</div>
+			</div>
+	{% endfor %}
+  <div class="container">
+    <div class="row">   
+      <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid avatar" src="/static/core/img/location.png" alt="">
+      </div>
+      <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading">Nosotros</h2>   
+        <p>En EVOLVE FITNESS CLUB, nos apasiona brindar a nuestros clientes una experiencia única al encontrar el calzado deportivo perfecto que se ajuste a sus necesidades y estilo de vida. Fundada con la visión de ofrecer una amplia variedad de opciones de calzado deportivo de alta calidad, nos esforzamos por ser la primera elección para los entusiastas del deporte y aquellos que buscan comodidad y estilo.
+        </p>
+      </div>
+    </div>  
+  </div>
+  </body>
+
+
